@@ -6,9 +6,8 @@ from board.models import Bb
 
 
 def index(request):
-    title = 'Список объявлений\r\n\r\n\r\n'
+    bbs = Bb.objects.order_by('-published')
+    title = 'Список объявлений'
+    context = {'bbs': bbs, 'title': title}
 
-    for x in Bb.objects.order_by('-published'):
-        title += f'{x.title}\r\n{x.content}\r\n\r\n'
-
-    return HttpResponse(title, content_type='text/plain; charset=utf-8')
+    return render(request=request, template_name='index.html', context=context)

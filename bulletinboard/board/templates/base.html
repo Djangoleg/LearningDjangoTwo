@@ -1,10 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ title|title }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    {% block css %}
+    {% endblock %}
 </head>
 <body>
-$END$
+<!-- Page content -->
+{% block content %}
+
+{% endblock %}
+
+<!-- Footer -->
+{% block footer %}
+
+{% endblock %}
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
